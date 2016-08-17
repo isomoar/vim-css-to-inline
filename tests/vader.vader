@@ -1,0 +1,41 @@
+Given js (transfm plain css):
+  {
+    text-align: center;
+    overflow: visible;
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 12px;
+    color: #333;
+    word-wrap: normal;
+    white-space: pre;
+  }
+Do:
+  :call CssToInline()\<CR>
+Expect:
+  {
+    textAlign: 'center',
+    overflow: 'visible',
+    fontFamily: 'Consolas, "Liberation Mono", Menlo, Courier, monospace',
+    fontSize: 12,
+    color: '#333',
+    wordWrap: 'normal',
+    whiteSpace: 'pre',
+  }
+
+Given js (should work correctly with mixed styles):
+  {
+    textAlign: center; overflow: 'visible',
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace; font-size: 12px;
+    color: '#333',
+    word-wrap: normal;
+    white-space: pre;
+  }
+Do:
+  :call CssToInline()\<CR>
+Expect:
+  {
+    textAlign: 'center', overflow: 'visible',
+    fontFamily: 'Consolas, "Liberation Mono", Menlo, Courier, monospace', fontSize: 12,
+    color: '#333',
+    wordWrap: 'normal',
+    whiteSpace: 'pre',
+  }
