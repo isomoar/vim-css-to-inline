@@ -5,7 +5,7 @@ function! CssToInline()
   let s:vr = @q
 
   " left part before :
-  let s:vr = substitute(s:vr, '[;\n\s]*\zs\(\_s*\a\+\)-\(\a\)', '\1\U\2', 'g')
+  let s:vr = substitute(s:vr, '\%([;\n]\zs\|^\@=\)\(\_s*\a\+\)-\(\a\)', '\1\U\2', 'g')
   " right part after :
   let s:vr = substitute(s:vr, ':\zs\([^:;]*;.*\)\@=\(\_s*0\_s*;\)\@!\s_*\([^;]*\);', " '\\3',", 'g')
   " replace '12px' with 12
