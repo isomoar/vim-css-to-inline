@@ -3,7 +3,7 @@ function! s:doReg(str)
   let l:vr = substitute(a:str, '\%([;\n]\zs\|^\@=\)\(\_s*\a\+\)-\(\a\)', '\1\U\2', 'g')
 
   " right part after :
-  let l:vr = substitute(l:vr, ':\zs\([^:;]*;.*\)\@=\(\_s*0\_s*;\)\@!\s_*\([^;]*\);', " '\\3',", 'g')
+  let l:vr = substitute(l:vr, ':\zs\([^:;]*;.*\)\@=\(\_s*0\_s*;\)\@!\_s*\([^;]*\);', " '\\3',", 'g')
 
   " replace 'Npx' with N
   if !get(g:, 'csstoinline_wrap_pixels', 0)
