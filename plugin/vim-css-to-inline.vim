@@ -22,10 +22,10 @@ function! s:CssToInline(type)
     let @q = substitute(l:res, ';', ',', 'g')
     normal! gv"qgp"
   elseif a:type ==# 'n'
-    normal! vi{"qy
+    execute "normal! ?{\<cr>:nohlsearch\<cr>v/}\<cr>\"qd"
     let l:res = s:doReg(@q)
     let @q = substitute(l:res, ';', ',', 'g')
-    normal! di{"qP
+    normal! "qP
   endif
 
   let @q = s:previous_q_reg
