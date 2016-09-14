@@ -1,6 +1,6 @@
 vim-css-to-inline
 =================
-Transforms plain css to JSX inline styles.
+Transforms plain css to JSX inline styles
 
 ![](http://i.imgur.com/dRLL2Ch.gif)
 Installation
@@ -17,7 +17,7 @@ Default mappings:
 
 * `tis` - transform to inline styles
 
-In normal mode plugin automatically transforms everyting between curly braces
+In normal mode plugin automatically transforms everything between curly braces
 `{}`. 
 
 Customization
