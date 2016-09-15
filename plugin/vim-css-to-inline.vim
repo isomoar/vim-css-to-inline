@@ -10,12 +10,12 @@ function! s:transform(str)
 endfunction
 
 function! s:reverse(str)
-  if !get(g:, 'csstoinline_wrap_pixels', 0)
-    let l:vr = substitute(a:str, ':\_s*\zs\(\d\+\)', '''\1px''', 'g')
-  endif
-
-  let l:vr = substitute(l:vr, '\%([,\n]\zs\|^\@=\)\(\_s*\l*\)\(\u\+\)', '\1-\l\2', 'g')
+  let l:vr = substitute(a:str, '\%([,\n]\zs\|^\@=\)\(\_s*\l*\)\(\u\+\)', '\1-\l\2', 'g')
   let l:vr = substitute(l:vr, ':\_s*\zs\(''\([^'']*\)''\)', '\2', 'g')
+
+  if !get(g:, 'csstoinline_wrap_pixels', 0)
+    let l:vr = substitute(l:vr, ':\_s*\zs\(\d\+\),\@=', '\1px', 'g')
+  endif
 
   return substitute(l:vr, ',', ';', 'g')
 endfunction
