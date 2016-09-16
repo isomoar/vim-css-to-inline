@@ -1,8 +1,12 @@
 vim-css-to-inline
 =================
+
 Transforms plain css to JSX inline styles and vise versa
 
+[![Build Status](https://travis-ci.org/isomoar/vim-css-to-inline.svg?branch=master)](https://travis-ci.org/isomoar/vim-css-to-inline)
+
 ![](http://i.imgur.com/dRLL2Ch.gif)
+
 Installation
 ------------
 With plugin manager like [Vim-plug](https://github.com/junegunn/vim-plug):
