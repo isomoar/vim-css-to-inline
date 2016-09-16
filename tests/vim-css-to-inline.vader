@@ -1,0 +1,88 @@
+Given css (css -> js):
+  {
+    text-align: center;
+    overflow: visible;
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 12px;
+    color: #333;
+    word-wrap: normal;
+    white-space: pre;
+  }
+Do:
+  tis 
+Expect:
+  {
+    textAlign: 'center',
+    overflow: 'visible',
+    fontFamily: 'Consolas, "Liberation Mono", Menlo, Courier, monospace',
+    fontSize: 12,
+    color: '#333',
+    wordWrap: 'normal',
+    whiteSpace: 'pre',
+  }
+
+Given css (css -> js mixed):
+  {
+    text-align: 'center', overflow: 'visible',
+    fontFamily: 'Consolas, "Liberation Mono", Menlo, Courier, monospace', fontSize: 12,
+    color: '#333',
+    wordWrap: 'normal',
+    whiteSpace: 'pre',
+    font-family: sans-serif;
+  }
+Do:
+  tis
+Expect:
+  {
+    textAlign: 'center', overflow: 'visible',
+    fontFamily: 'Consolas, "Liberation Mono", Menlo, Courier, monospace', fontSize: 12,
+    color: '#333',
+    wordWrap: 'normal',
+    whiteSpace: 'pre',
+    fontFamily: 'sans-serif',
+  }
+
+Given js (js -> css):
+  {
+    textAlign: 'center',
+    overflow: 'visible',
+    fontFamily: 'Consolas, "Liberation Mono", Menlo, Courier, monospace',
+    fontSize: 12,
+    color: '#333',
+    wordWrap: 'normal',
+    whiteSpace: 'pre',
+  }
+Do:
+  fis
+Expect:
+  {
+    text-align: center;
+    overflow: visible;
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 12px;
+    color: #333;
+    word-wrap: normal;
+    white-space: pre;
+  }
+
+Given js (js -> css mixed):
+  {
+    textAlign: 'center',
+    overflow: visible;
+    fontFamily: 'Consolas, "Liberation Mono", Menlo, Courier, monospace',
+    font-size: 12px;
+    color: '#333'; wordWrap: 'normal',
+    whiteSpace: 'pre',
+  }
+Do:
+  fis
+Expect:
+  {
+    text-align: center;
+    overflow: visible;
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 12px;
+    color: #333; word-wrap: normal;
+    white-space: pre;
+  }
+

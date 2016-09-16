@@ -1,0 +1,21 @@
+language: vim
+
+before_script: |
+  git clone https://github.com/junegunn/vader.vim.git
+  git clone https://github.com/junegunn/vim-pseudocl.git
+  git clone https://github.com/tpope/vim-repeat
+  hg clone https://code.google.com/p/vim/
+  cd vim
+  # ./configure --with-features=huge --enable-rubyinterp --enable-pythoninterp
+  ./configure --with-features=huge
+  make
+  sudo make install
+  cd -
+
+script: |
+  /usr/local/bin/vim -Nu <(cat << VIMRC
+  set rtp+=vader.vim
+  set rtp+=vim-pseudocl
+  set rtp+=vim-repeat
+  set rtp+=.
+  VIMRC) -c 'Vader! tests/vim-css-to-inline.vader' > /dev/null
